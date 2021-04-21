@@ -1,20 +1,10 @@
 spring:
-  security:
-    user:
-      password: ${eureka.password}
   data:
     mongodb:
       uri: mongodb+srv://yasin:cimbom21@cluster0.f8enl.mongodb.net/mydb?authSource=admin&replicaSet=atlas-abz77t-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
   application:
     name: movie-catalog-service
-  config:
-    activate:
-      on-profile: heroku
 eureka:
-  instance:
-    hostname: ${DOMAIN_NAME}
-    non-secure-port: 80
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
-  password: ${USER_PASSWORD:password}
+      defaultZone: https://warm-plateau-82277.herokuapp.com/eureka
