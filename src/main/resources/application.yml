@@ -1,12 +1,20 @@
 spring:
+  security:
+    user:
+      password: ${eureka.password}
   data:
     mongodb:
-      uri: mongodb://springmongotest:H5Po3DRrCEhedJU07Ink3R5WEM7sJSY9pgDSkLwlag077ISM1RXPJQEGgQxGlTLeRqpbDxi2Bm3yhTTx7NRKCA%3D%3D@springmongotest.mongo.cosmos.azure.com:10255/mydb?authSource=admin&replicaSet=globaldb&maxIdleTimeMS=120000&readPreference=primary&appname=MongoDB%20Compass&retryWrites=false&ssl=true
+      uri: mongodb+srv://yasin:cimbom21@cluster0.f8enl.mongodb.net/mydb?authSource=admin&replicaSet=atlas-abz77t-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
   application:
     name: movie-catalog-service
-server:
-  port: 8080
+  config:
+    activate:
+      on-profile: heroku
 eureka:
+  instance:
+    hostname: ${DOMAIN_NAME}
+    non-secure-port: 80
   client:
     serviceUrl:
-      defaultZone: https://warm-plateau-82277.herokuapp.com/
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
+  password: ${USER_PASSWORD:password}
