@@ -93,7 +93,7 @@
       </plugin>
       <plugin>
         <groupId>org.jetbrains.kotlin</groupId>  
-        <artifactId>kotlin-maven-plugin</artifactId>  
+        <artifactId>kotlin-maven-plugin</artifactId>
         <configuration> 
           <args> 
             <arg>-Xjsr305=strict</arg> 
@@ -109,39 +109,24 @@
             <version>${kotlin.version}</version> 
           </dependency> 
         </dependencies> 
-      </plugin>  
+      </plugin>
       <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.8.0</version>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <version>1.4.10</version>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>build</goal>
+              <!-- <goal>push</goal> -->
+            </goals>
+          </execution>
+        </executions>
         <configuration>
-          <schemaVersion>V2</schemaVersion>
-          <resourceGroup>movie-catalog-service-1618928831148-rg</resourceGroup>
-          <appName>movie-catalog-service-1618928831148</appName>
-          <pricingTier>P1v2</pricingTier>
-          <region>westeurope</region>
-          <runtime>
-            <os>linux</os>
-            <javaVersion>java11</javaVersion>
-            <webContainer>java11</webContainer>
-
-          </runtime>
-          <appSettings>
-            <property>
-              <name>JAVA_OPTS</name>
-              <value>-Dserver.port=80</value>
-            </property>
-          </appSettings>
-          <deployment>
-            <resources>
-              <resource>
-                <directory>${project.basedir}/target</directory>
-                <includes>
-                  <include>*.jar</include>
-                </includes>
-              </resource>
-            </resources>
-          </deployment>
+          <repository>eraslan/${project.name}</repository>
+          <tag>${project.version}</tag>
+          <skipDockerInfo>true</skipDockerInfo>
         </configuration>
       </plugin>
     </plugins> 
