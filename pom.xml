@@ -120,7 +120,8 @@
           </execution>
         </executions>
         <configuration>
-          <repository>546200696978.dkr.ecr.us-east-1.amazonaws.com/imageregistry</repository>
+          <!--suppress UnresolvedMavenProperty -->
+          <repository>546200696978.dkr.ecr.us-east-1.amazonaws.com/imageregistry:${env.CODEBUILD_RESOLVED_SOURCE_VERSION}</repository>
           <tag>${project.version}</tag>
           <skipDockerInfo>true</skipDockerInfo>
         </configuration>
