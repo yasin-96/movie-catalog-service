@@ -120,7 +120,7 @@
           </execution>
         </executions>
         <configuration>
-          <repository>546200696978.dkr.ecr.us-east-1.amazonaws.com/imageregistry:19f08d03</repository>
+          <repository>546200696978.dkr.ecr.us-east-1.amazonaws.com/imageregistry</repository>
           <tag>${project.version}</tag>
           <skipDockerInfo>true</skipDockerInfo>
         </configuration>
