@@ -14,8 +14,9 @@ phases:
     commands:
       - echo Build started on `date`
       - echo $IMAGE_URI
-      - mvn clean package -Ddockerfile.skip
-      - docker build --tag $IMAGE_URI .
+      - mvn install
+      - docker build -t imageregistry .
+      - docker tag imageregistry:latest 546200696978.dkr.ecr.us-east-1.amazonaws.com/imageregistry:latest
   post_build:
     commands:
       - printenv
