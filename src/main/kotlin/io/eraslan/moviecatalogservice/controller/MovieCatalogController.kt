@@ -17,12 +17,8 @@ class MovieCatalogController(
     fun hello() : String {
         return "Hello World"
     }
-    /*
-    @PostMapping("/new")
-    fun addNewCatalogItem(@RequestBody item:CatalogItem) :  Mono<CatalogItem> {
-        return movieCatalogService.addNewCatalogItem(item)
-    }
 
+    /*
     //This is an individual endpoint for every user, should maybe get moved
     @GetMapping("/{userId}")
     fun getAllRatedMovies(@PathVariable userId:String) : Flux<CatalogItem>{

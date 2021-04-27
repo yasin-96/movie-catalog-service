@@ -1,0 +1,10 @@
+version: 1.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:us-east-1:546200696978:task-definition/movie-catalog-service-task:1"
+        LoadBalancerInfo:
+          ContainerName: "movie-catalog-service"
+          ContainerPort: "8080"
+        PlatformVersion: "LATEST"
