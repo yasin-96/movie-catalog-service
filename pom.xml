@@ -19,11 +19,7 @@
     <kotlin.version>1.4.31</kotlin.version>  
     <spring-cloud.version>2020.0.2</spring-cloud.version>
   </properties>  
-  <dependencies> 
-    <dependency> 
-      <groupId>org.springframework.cloud</groupId>  
-      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId> 
-    </dependency>  
+  <dependencies>
     <dependency> 
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId> 
