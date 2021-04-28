@@ -4,3 +4,5 @@ spring:
       uri: mongodb+srv://yasin:cimbom21@cluster0.f8enl.mongodb.net/test
   application:
     name: movie-catalog-service
+server:
+  port: 8000
