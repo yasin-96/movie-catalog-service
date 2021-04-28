@@ -17,10 +17,10 @@ phases:
       - mvn install
       - docker build -t imageregistry .
       - docker tag imageregistry:latest 546200696978.dkr.ecr.us-east-1.amazonaws.com/imageregistry:latest
-      - docker push 546200696978.dkr.ecr.us-east-1.amazonaws.com/imageregistry:latest
   post_build:
     commands:
       - printenv
+      - docker push 546200696978.dkr.ecr.us-east-1.amazonaws.com/imageregistry:latest
       - echo Build completed on `date`
       - echo $(docker images)
       - echo Pushing docker image
