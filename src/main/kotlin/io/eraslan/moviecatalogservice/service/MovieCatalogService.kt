@@ -55,7 +55,7 @@ class MovieCatalogService(
     fun searchMovie(name:String) : Flux<CatalogItem> {
         return webClient.build()
             .get()
-            .uri("http://localhost:8080/search/movies?name=$name")
+            .uri("http://3.83.126.150:8080/search/movies?name=$name")
             .retrieve()
             .bodyToFlux(Movie::class.java)
             .collectList()
