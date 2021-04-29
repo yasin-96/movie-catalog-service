@@ -1,6 +1,7 @@
 package io.eraslan.moviecatalogservice.controller
 
 import io.eraslan.moviecatalogservice.model.CatalogItem
+import io.eraslan.moviecatalogservice.model.Movie
 import io.eraslan.moviecatalogservice.model.Rating
 import io.eraslan.moviecatalogservice.service.MovieCatalogService
 import org.springframework.web.bind.annotation.*
@@ -26,7 +27,7 @@ class MovieCatalogController(
     }*/
 
     @GetMapping("/movie/search")
-    fun searchMovie(@RequestParam name:String) : Flux<CatalogItem> {
+    fun searchMovie(@RequestParam name:String) : Flux<Movie> {
         return movieCatalogService.searchMovie(name)
     }
 

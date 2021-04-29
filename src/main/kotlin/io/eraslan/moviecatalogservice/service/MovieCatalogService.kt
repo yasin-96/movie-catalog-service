@@ -29,7 +29,7 @@ class MovieCatalogService(
                     .run(
                         it
                     ) {
-                        Flux.just(Rating(" ",  0))
+                        Flux.just(Rating(" ", 0))
                     }
             }
     }
@@ -52,13 +52,13 @@ class MovieCatalogService(
             }
     }*/
 
-    fun searchMovie(name:String) : Flux<CatalogItem> {
+    fun searchMovie(name: String): Flux<Movie> {
         return webClient.build()
             .get()
             .uri("http://3.83.126.150:8080/search/movies?name=$name")
             .retrieve()
             .bodyToFlux(Movie::class.java)
-            .collectList()
+        /* .collectList()
             .flatMapMany { movielist->
                 val list = ArrayList<String>()
                 movielist.map {
@@ -68,29 +68,30 @@ class MovieCatalogService(
                     .map {
                         CatalogItem(it.t1._id,it.t1.name,"",it.t2.rating,"")
                     } //.switchIfEmpty(Flux.just(CatalogItem("","","",10,"")))
-            }
+            }*/
     }
 
-    fun findRatingByMovieId(movieIds: List<String>) : Flux<Rating> {
+    fun findRatingByMovieId(movieIds: List<String>): Flux<Rating> {
         return webClient.build()
             .get()
             .uri { uribuilder ->
                 uribuilder.host("ratings-data-service")
                     .path("/ratings/list")
-                    .queryParam("movieIds",movieIds)
+                    .queryParam("movieIds", movieIds)
                     .build()
             }
             .retrieve()
             .bodyToFlux(Rating::class.java)
     }
 
-    fun findMovieByGenre(genre:String) : Flux<Movie> {
+    fun findMovieByGenre(genre: String): Flux<Movie> {
         return webClient.build()
             .get()
             .uri("http://search-movie-service/search/movie?genre=$genre")
             .retrieve()
             .bodyToFlux(Movie::class.java)
     }
+
 
     fun getMovieInfo(movieId: String): Mono<Movie> {
         return webClient.build()
@@ -107,8 +108,9 @@ class MovieCatalogService(
                     }
             }
     }
-
-
-
-
 }
+
+
+
+
+
