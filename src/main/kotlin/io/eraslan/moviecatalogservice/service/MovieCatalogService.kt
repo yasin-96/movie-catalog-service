@@ -2,6 +2,7 @@ package io.eraslan.moviecatalogservice.service
 
 import io.eraslan.moviecatalogservice.model.Movie
 import io.eraslan.moviecatalogservice.model.Rating
+import io.eraslan.moviecatalogservice.properties.AWSProperties
 import org.springframework.cloud.circuitbreaker.resilience4j.ReactiveResilience4JCircuitBreakerFactory
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
@@ -12,7 +13,8 @@ import reactor.core.publisher.Mono
 @Service
 class MovieCatalogService(
     private val webClient : WebClient.Builder,
-    private val circuitBreakerFactory: ReactiveResilience4JCircuitBreakerFactory
+    private val circuitBreakerFactory: ReactiveResilience4JCircuitBreakerFactory,
+    private val awsProperties: AWSProperties
 ) {
 
     fun getAllRatings(): Flux<Rating> {
@@ -72,8 +74,8 @@ class MovieCatalogService(
         return webClient.build()
             .get()
             .uri { uribuilder ->
-                uribuilder.host("ratings-data-service")
-                    .path("/ratings/list")
+                uribuilder.host(awsProperties.uri)
+                    .path("/rating/list")
                     .queryParam("movieIds", movieIds)
                     .build()
             }

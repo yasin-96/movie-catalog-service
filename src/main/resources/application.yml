@@ -10,3 +10,5 @@ management:
   endpoints:
     web:
       base-path: /manage
+loadbalancer:
+  uri: ${loadbalancer_url}
