@@ -1,15 +1,12 @@
 package io.eraslan.moviecatalogservice.service
 
-import io.eraslan.moviecatalogservice.model.CatalogItem
 import io.eraslan.moviecatalogservice.model.Movie
 import io.eraslan.moviecatalogservice.model.Rating
-import io.eraslan.moviecatalogservice.repository.MovieCatalogRepository
 import org.springframework.cloud.circuitbreaker.resilience4j.ReactiveResilience4JCircuitBreakerFactory
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
-import reactor.kotlin.core.publisher.toFlux
 
 
 @Service

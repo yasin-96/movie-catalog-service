@@ -6,8 +6,6 @@ spring:
     name: movie-catalog-service
 server:
   port: 8000
-  servlet:
-    context-path: /api/movie-catalog-service
 management:
   endpoints:
     web:

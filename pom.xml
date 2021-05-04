@@ -23,7 +23,12 @@
     <dependency> 
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId> 
-    </dependency>  
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-circuitbreaker -->  
     <dependency> 
       <groupId>org.springframework.cloud</groupId>  

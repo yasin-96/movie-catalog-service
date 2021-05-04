@@ -1,6 +1,7 @@
 package io.eraslan.moviecatalogservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication
 import org.springframework.cloud.circuitbreaker.resilience4j.ReactiveResilience4JCircuitBreakerFactory
 import org.springframework.cloud.client.circuitbreaker.ReactiveCircuitBreakerFactory

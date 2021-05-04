@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
+@RequestMapping("/movie")
 @RestController
 class MovieCatalogController(
     private val movieCatalogService: MovieCatalogService
@@ -25,7 +26,7 @@ class MovieCatalogController(
         return movieCatalogService.getAllRatedMovies()
     }*/
 
-    @GetMapping("/movie/search")
+    @GetMapping("/search")
     fun searchMovie(@RequestParam name:String) : Flux<Movie> {
         return movieCatalogService.searchMovie(name)
     }
