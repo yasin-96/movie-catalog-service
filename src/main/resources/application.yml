@@ -11,4 +11,4 @@ management:
     web:
       base-path: /manage
 loadbalancer:
-  uri: ${loadbalancer_url}
+  uri: ${loadbalancer_url:microservices-lb-745251774.us-east-1.elb.amazonaws.com}

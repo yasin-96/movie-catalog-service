@@ -32,8 +32,8 @@ class MovieCatalogController(
     }
 
     @GetMapping("/test")
-    fun testFun(@RequestParam movieIds:List<String>) : Flux<Rating> {
-        return movieCatalogService.findRatingByMovieId(movieIds)
+    fun testFun() : Flux<Rating> {
+        return movieCatalogService.findRatingByMovieId()
     }
 
 

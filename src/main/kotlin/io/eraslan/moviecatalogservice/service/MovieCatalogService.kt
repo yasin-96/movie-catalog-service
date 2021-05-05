@@ -70,13 +70,13 @@ class MovieCatalogService(
             }*/
     }
 
-    fun findRatingByMovieId(movieIds: List<String>): Flux<Rating> {
+    fun findRatingByMovieId(): Flux<Rating> {
         return webClient.build()
             .get()
             .uri { uribuilder ->
-                uribuilder.host(awsProperties.uri)
-                    .path("/rating/list")
-                    .queryParam("movieIds", movieIds)
+                uribuilder.scheme("http")
+                    .host(awsProperties.uri)
+                    .path("rating/all")
                     .build()
             }
             .retrieve()

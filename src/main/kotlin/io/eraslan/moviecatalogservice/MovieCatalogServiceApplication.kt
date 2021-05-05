@@ -20,7 +20,6 @@ class MovieCatalogServiceApplication{
 	}
 
 	@Primary
-	@LoadBalanced
 	@Bean
 	fun getWebClientBuilder() : WebClient.Builder {
 		return WebClient.builder()
